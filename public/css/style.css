@@ -1,0 +1,128 @@
+.bg {
+    background-color: white;
+    width: 360px;
+    height: 640px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.header {
+    background-color: #393F4D;
+    width: 358px;
+    height: 115px;
+    text-align: center;
+}
+
+.header-text {
+    color: #D4D4DC;
+    font-size: 30px;
+    position: relative;
+    top: 40%;
+}
+
+.class {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    width: 346px;
+    height: 92px;
+    text-align: left;
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.class-name {
+    font-size: 25px;
+    padding-bottom: 0px;
+}
+
+.class-description {
+    font-size: 15px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.class-quarter {
+    font-size: 12px;
+    padding-top: 9px;
+    padding-bottom: 5px;
+}
+
+.class-container {
+    width: 358px;
+    height: 457px;
+    overflow-x: hidden;
+    overflow-x: auto;
+}
+
+.footer {
+    background-color: #393F4D;
+    width: 358px;
+    height: 68px;
+    position: absolute;
+    top: 572px;
+    left: 1;
+    text-align: center;
+}
+
+.footer-buttons {
+    position: relative;
+    left: 4%;
+    top: 4%;
+}
+
+.footer-image-search {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 3%;
+}
+
+.footer-image-search-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 3%;
+}
+
+.footer-image-classes {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 33%;
+}
+
+.footer-image-classes-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 33%;
+}
+
+.footer-image-profile {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 63%;
+}
+
+.footer-image-profile-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 63%;
+}
+
+.arrow {
+    margin-left: 200px;
+}

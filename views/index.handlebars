@@ -1,8 +1,74 @@
 <html>
+
 <head>
 	<title>Test Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-Begin here (or replace this with any static code already written).
+	<div class="bg">
+		<div class="header">
+			<div class="header-text">My Classes</div>
+		</div>
+
+		<div class="class-container">
+
+			<button type="submit" name="class-button" class="class">
+
+				<div class="class-name">
+					CSE 170 <img src="images/arrow.png" class="arrow">
+				</div>
+
+				<div class="class-description">
+					Interaction Design
+				</div>
+
+				<div class="class-quarter">
+					Winter 2020
+				</div>
+
+		</div>
+
+		{{!-- <div class="class">
+				Class
+			</div>
+
+			<div class="class">
+				Class
+			</div> --}}
+
+	</div>
+
+
+	<div class="footer">
+		<div class="footer-buttons">
+			<button type="submit" name="search" class="footer-image-search">
+				<img src="images/search_classes_resize.png">
+			</button>
+
+			<button type="submit" name="classes" class="footer-image-classes">
+				<img src="images/my_classes_resize.png">
+			</button>
+
+			<button type="submit" name="profile" class="footer-image-profile">
+				<img src="images/my_profile_resize.png">
+			</button>
+
+			{{!-- <img src="images/my_classes.png" class="footer-image-classes">
+				<img src="images/my_profile_2.png" class="footer-image-profile"> --}}
+		</div>
+	</div>
+	</div>
+
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/home.js"></script>
 </body>
+
 </html>
