@@ -45,7 +45,7 @@
 
 .class-quarter {
     font-size: 12px;
-    padding-top: 9px;
+    padding-top: 5px;
     padding-bottom: 5px;
 }
 
@@ -54,6 +54,7 @@
     height: 457px;
     overflow-x: hidden;
     overflow-x: auto;
+    text-decoration: none;
 }
 
 .footer {
@@ -124,5 +125,13 @@
 }
 
 .arrow {
-    margin-left: 200px;
+    margin-left: 250px;
+}
+
+.arrow-class {
+    margin-left: 300px;
+}
+
+a {
+    color:  #D4D4DC;
 }

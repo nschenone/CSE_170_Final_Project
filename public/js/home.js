@@ -15,27 +15,27 @@ function initializePage() {
 $(".footer-image-search").click(clickedSearch);
 
 function clickedSearch(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("SEARCH CLASSES");
 }
 
 $(".footer-image-classes").click(clickedClasses);
 
 function clickedClasses(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("MY CLASSES");
 }
 
 $(".footer-image-profile").click(clickedProfile);
 
 function clickedProfile(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("MY PROFILE");
 }
 
 $(".class").click(clickedClass);
 
 function clickedClass(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("CLICKED CLASS");
 }

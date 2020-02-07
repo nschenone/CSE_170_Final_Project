@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Test Page</title>
+	<title>My Classes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,49 +19,48 @@
 
 		<div class="class-container">
 
-			<button type="submit" name="class-button" class="class">
+			{{#each classes}}
+			<a href="class/{{name}}">
+				<button type="submit" name="class-button" class="class">
 
-				<div class="class-name">
-					CSE 170 <img src="images/arrow.png" class="arrow">
-				</div>
+					<div class="class-name">
+						{{name}}
+					</div>
 
-				<div class="class-description">
-					Interaction Design
-				</div>
+					<div class="class-description">
+						{{description}}
+					</div>
 
-				<div class="class-quarter">
-					Winter 2020
-				</div>
+					<div class="class-quarter">
+						{{quarter}} <img src="images/arrow.png" class="arrow">
+					</div>
+			</a>
+			{{/each}}
 
 		</div>
-
-		{{!-- <div class="class">
-				Class
-			</div>
-
-			<div class="class">
-				Class
-			</div> --}}
 
 	</div>
 
 
 	<div class="footer">
 		<div class="footer-buttons">
-			<button type="submit" name="search" class="footer-image-search">
-				<img src="images/search_classes_resize.png">
-			</button>
+			<a href="search/">
+				<button type="submit" name="search" class="footer-image-search">
+					<img src="images/search_classes_resize.png">
+				</button>
+			</a>
 
-			<button type="submit" name="classes" class="footer-image-classes">
-				<img src="images/my_classes_resize.png">
-			</button>
+			<a href="/">
+				<button type="submit" name="classes" class="footer-image-classes">
+					<img src="images/my_classes_resize.png">
+				</button>
+			</a>
 
-			<button type="submit" name="profile" class="footer-image-profile">
-				<img src="images/my_profile_resize.png">
-			</button>
-
-			{{!-- <img src="images/my_classes.png" class="footer-image-classes">
-				<img src="images/my_profile_2.png" class="footer-image-profile"> --}}
+			<a href="profile/">
+				<button type="submit" name="profile" class="footer-image-profile">
+					<img src="images/my_profile_resize.png">
+				</button>
+			</a>
 		</div>
 	</div>
 	</div>
