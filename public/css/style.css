@@ -37,6 +37,11 @@
     padding-bottom: 0px;
 }
 
+.form-text {
+    font-size: 15px;
+    padding-bottom: 0px;
+}
+
 .class-description {
     font-size: 15px;
     padding-top: 0px;
@@ -144,4 +149,32 @@
 
 a {
     color:  #D4D4DC;
+}
+
+.login-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    font-size: 12px;
+    width: 120px;
+    height: 40px;
+    text-align: middle;
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.login-buttons {
+    margin: 6px;
+    padding-left: 40px;
+    padding-right: 5px;
+}
+
+.login-form {   
+    margin: 6px;
+    padding-left: 50px;
+    padding-right: 5px;
+}
+
+.form-item {   
+    width: 250px;
 }
