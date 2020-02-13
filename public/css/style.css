@@ -67,6 +67,16 @@
     text-align: center;
 }
 
+.middle {
+    /* background-color: #393F4D; */
+    /* width: 358px; */
+    /* height: 68px; */
+    position: absolute;
+    top: 250;
+    /* left: 1; */
+    /* text-align: center; */
+}
+
 .footer-buttons {
     position: relative;
     left: 4%;

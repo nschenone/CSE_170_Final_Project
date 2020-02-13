@@ -9,6 +9,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
+var myClasses = require('./routes/myClasses');
 var classPage = require('./routes/class');
 var profilePage = require('./routes/profile');
 var searchPage = require('./routes/search');
@@ -36,6 +37,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', index.view);
+app.get('/myClasses', myClasses.view);
 app.get('/class/:name', classPage.viewClass);
 app.get('/profile', profilePage.viewProfile);
 app.get('/search', searchPage.viewSearch);

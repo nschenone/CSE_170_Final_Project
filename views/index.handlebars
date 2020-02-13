@@ -14,54 +14,29 @@
 <body>
 	<div class="bg">
 		<div class="header">
-			<div class="header-text">My Classes</div>
+			<div class="header-text">Login</div>
 		</div>
 
-		<div class="class-container">
+		<div class="class-container middle">
 
-			{{#each classes}}
-			<a href="class/{{name}}">
+			<a href="myClasses">
 				<button type="submit" name="class-button" class="class">
-
 					<div class="class-name">
-						{{name}}
+						Login
 					</div>
-
-					<div class="class-description">
-						{{description}}
-					</div>
-
-					<div class="class-quarter">
-						{{quarter}} <img src="images/arrow.png" class="arrow">
-					</div>
+				</button>
 			</a>
-			{{/each}}
+
+			<a href="myClasses">
+				<button type="submit" name="class-button" class="class">
+					<div class="class-name">
+						Sign Up
+					</div>
+				</button>
+			</a>
 
 		</div>
 
-	</div>
-
-
-	<div class="footer">
-		<div class="footer-buttons">
-			<a href="search/">
-				<button type="submit" name="search" class="footer-image-search">
-					<img src="images/search_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="/">
-				<button type="submit" name="classes" class="footer-image-classes-active">
-					<img src="images/my_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="profile/">
-				<button type="submit" name="profile" class="footer-image-profile">
-					<img src="images/my_profile_resize.png">
-				</button>
-			</a>
-		</div>
 	</div>
 	</div>
 
