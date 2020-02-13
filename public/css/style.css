@@ -178,3 +178,33 @@ a {
 .form-item {   
     width: 250px;
 }
+
+.profile-container {
+    width: 358px;
+    height: 457px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-decoration: none;
+    margin: 6px;
+    padding-top: 50px;
+    padding-left: 90px;
+    padding-right: 5px;
+}
+
+.profile-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    font-size: 12px;
+    width: 170px;
+    height: 40px;
+    text-align: middle;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.profile-image {
+    padding-left: 20px;
+    padding-right: 5px;
+}
