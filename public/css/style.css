@@ -208,3 +208,22 @@ a {
     padding-left: 20px;
     padding-right: 5px;
 }
+
+.class-search {
+    margin: 10px;
+    width: 337px
+}
+
+.search-container {
+    width: 358px;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-decoration: none;
+}
+
+.not-found-text {
+    padding-left: 135px;
+    padding-top: 10px;
+    font-size: 20px;
+}
