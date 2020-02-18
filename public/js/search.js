@@ -40,6 +40,7 @@ function search(e) {
             for (var i = 0; i < classLen; i++) {
                 var className = data["classes"][i]["name"];
                 var classDescription = data["classes"][i]["description"];
+                var classProfessor = data["classes"][i]["professor"];
                 var classQuarter = data["classes"][i]["quarter"];
 
                 // If query contained in className
@@ -57,6 +58,10 @@ function search(e) {
                     <div class="class-description">
                         ${classDescription}
                     </div>
+
+                    <div class="class-professor">
+						${classProfessor}
+					</div>
 
                     <div class="class-quarter">
                         ${classQuarter} <img src="../images/arrow.png" class="arrow">

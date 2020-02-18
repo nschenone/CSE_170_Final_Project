@@ -33,7 +33,7 @@
 }
 
 .class-name {
-    font-size: 25px;
+    font-size: 20px;
     padding-bottom: 0px;
 }
 
@@ -45,12 +45,18 @@
 .class-description {
     font-size: 15px;
     padding-top: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 3px;
+}
+
+.class-professor {
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .class-quarter {
     font-size: 12px;
-    padding-top: 5px;
+    padding-top: 0px;
     padding-bottom: 5px;
 }
 

@@ -3,26 +3,31 @@
         {
             "name": "CSE-170",
             "description": "Interaction Design",
+            "professor": "Scott Klemmer",
             "quarter": "Winter 2020"
         },
         {
             "name": "COGS-120",
             "description": "Interaction Design",
+            "professor": "Scott Klemmer",
             "quarter": "Winter 2020"
         },
         {
             "name": "CSE-110",
             "description": "Software Engineering",
+            "professor": "Gary Gillespie",
             "quarter": "Winter 2020"
         },
         {
             "name": "CSE-130",
             "description": "Programming Languages",
+            "professor": "Deian Stefan",
             "quarter": "Winter 2020"
         },
         {
             "name": "COGS-118A",
             "description": "Supervised Learning",
+            "professor": "Zhuowen Tu",
             "quarter": "Winter 2020"
         }
     ]
