@@ -12,10 +12,14 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.622.0",
+    "dotenv": "^8.2.0",
     "express": "3.x",
     "express3-handlebars": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "pg": "^7.18.1",
+    "postgres": "^1.0.2"
   },
   "engines": {
     "node": "8.9.x"

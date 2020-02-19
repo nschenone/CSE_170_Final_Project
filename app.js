@@ -4,6 +4,8 @@
  */
 
 var express = require('express');
+var dotenv = require('dotenv');
+dotenv.config();
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
@@ -16,6 +18,24 @@ var searchPage = require('./routes/search');
 var addClassPage = require('./routes/addClass');
 
 var app = express();
+
+// Postgres
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+client.connect();
+
+client.query('SELECT * FROM all_classes;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
 
 // all environments
 app.set('port', process.env.PORT || 3000);
