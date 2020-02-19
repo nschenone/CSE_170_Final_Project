@@ -10,8 +10,20 @@ $(document).ready(function () {
  */
 function initializePage() {
     console.log("Javascript connected!");
+
+    // Query all classes from db
+    $.get("/queryAllClasses", function (data, status) {
+        allClassesJSON = JSON.parse(data);
+    });
+
+    // Query my classes from db
+    $.get("/queryMyClasses", function (data, status) {
+        myClassesJSON = JSON.parse(data);
+    });
 }
 
+var allClassesJSON;
+var myClassesJSON;
 var input = document.getElementById('search-box');
 
 $(".class-search").keydown(search);
@@ -23,32 +35,29 @@ function search(e) {
     // Look for enter key
     // if (keycode == '13') {
     // Get json data
-
     if (keycode == '8' || keycode == '46') {
         input.value = '';
         $(".search-container").text("")
     }
 
-
     else if (query.length > 0) {
-        $.getJSON('../data/all_classes.json', function (data) {
-            var classLen = data["classes"].length;
+        var classLen = allClassesJSON["classes"].length;
 
-            // Loop through all classes
-            $(".search-container").text("");
-            var found = false;
-            for (var i = 0; i < classLen; i++) {
-                var className = data["classes"][i]["name"];
-                var classDescription = data["classes"][i]["description"];
-                var classProfessor = data["classes"][i]["professor"];
-                var classQuarter = data["classes"][i]["quarter"];
+        // Loop through all classes
+        $(".search-container").text("");
+        var found = false;
+        for (var i = 0; i < classLen; i++) {
+            var className = allClassesJSON["classes"][i]["name"];
+            var classDescription = allClassesJSON["classes"][i]["description"];
+            var classProfessor = allClassesJSON["classes"][i]["professor"];
+            var classQuarter = allClassesJSON["classes"][i]["quarter"];
 
-                // If query contained in className
-                if (className.includes(query)) {
-                    found = true;
+            // If query contained in className
+            if (className.includes(query)) {
+                found = true;
 
-                    // Append class button HTML to search-container
-                    var newClassButton = `<a href="../class/${className}">
+                // Append class button HTML to search-container
+                var newClassButton = `<a href="../class/${className}">
                 <button type="submit" name="class-button" class="class">
 
                     <div class="class-name">
@@ -69,14 +78,13 @@ function search(e) {
                 </a>
                 `
 
-                    $(".search-container").append(newClassButton);
-                }
+                $(".search-container").append(newClassButton);
             }
+        }
 
-            if (found == false) {
-                $(".search-container").html("<p class=not-found-text>Not Found</p>");
-            }
-        });
+        if (found == false) {
+            $(".search-container").html("<p class=not-found-text>Not Found</p>");
+        }
 
         if (keycode == '13') {
             input.value = '';

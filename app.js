@@ -21,12 +21,11 @@ var addClassPage = require('./routes/addClass');
 var app = express();
 
 
-// Postgres
+// Postgres connection
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
-
 
 client.connect((err) => {
   if (err) {
@@ -35,6 +34,21 @@ client.connect((err) => {
   console.log("Connected to database");
 });
 global.db = client;
+
+// Postgres query functions
+const getAllClasses = (request, response) => {
+  db.query('SELECT * FROM all_classes;', (err, resp) => {
+    if (err) throw err;
+    response.status(200).json(JSON.stringify({ "classes": resp.rows }));
+  });
+}
+
+const getMyClasses = (request, response) => {
+  db.query('SELECT * FROM my_classes;', (err, resp) => {
+    if (err) throw err;
+    response.status(200).json(JSON.stringify({ "classes": resp.rows }));
+  });
+}
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -62,7 +76,9 @@ app.get('/class/:name', classPage.viewClass);
 app.get('/profile', profilePage.viewProfile);
 app.get('/search', searchPage.viewSearch);
 app.get('/addClass', addClassPage.addClass);
-// Example route
+app.get('/queryAllClasses', getAllClasses);
+app.get('/queryMyClasses', getMyClasses);
+// Example route`
 // app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
