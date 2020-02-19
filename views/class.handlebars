@@ -14,7 +14,16 @@
 <body>
 	<div class="bg">
 		<div class="header">
-			<div class="header-text">{{className}}</div>
+			<div class="header-text">
+				{{className}}
+				<a
+					href="../../addClass?name={{className}}&description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+					<button type="submit" name="class-button" class="class-add-button">
+						<img src="../images/plus.png" style="padding-right:30px">
+					</button>
+				</a>
+			</div>
+
 		</div>
 
 		<div class="class-container">
@@ -78,7 +87,7 @@
 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="../js/home.js"></script>
+	<script src="../js/classManager.js"></script>
 </body>
 
 </html>

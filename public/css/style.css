@@ -32,6 +32,44 @@
     padding-right: 5px;
 }
 
+.class-add-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-left: -500px;
+    background-color: transparent;
+    /* border-color: transparent; */
+    border-radius: 100%;
+}
+
+.class-add-button img {
+    position: absolute;
+    top: 6%;
+    left: 84%;
+}
+
+.class-remove-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-left: -500px;
+    background-color: transparent;
+    /* border-color: transparent; */
+    border-radius: 100%;
+}
+
+.class-remove-button img {
+    position: absolute;
+    top: 6%;
+    left: 84%;
+}
+
 .class-name {
     font-size: 20px;
     padding-bottom: 0px;

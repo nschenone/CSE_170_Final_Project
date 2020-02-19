@@ -31,7 +31,7 @@ function search(e) {
 
 
     else if (query.length > 0) {
-        $.getJSON('../data/classes.json', function (data) {
+        $.getJSON('../data/all_classes.json', function (data) {
             var classLen = data["classes"].length;
 
             // Loop through all classes

@@ -13,6 +13,7 @@ var myClasses = require('./routes/myClasses');
 var classPage = require('./routes/class');
 var profilePage = require('./routes/profile');
 var searchPage = require('./routes/search');
+var addClassPage = require('./routes/addClass');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.get('/myClasses', myClasses.view);
 app.get('/class/:name', classPage.viewClass);
 app.get('/profile', profilePage.viewProfile);
 app.get('/search', searchPage.viewSearch);
+app.get('/addClass', addClassPage.addClass);
 // Example route
 // app.get('/users', user.list);
 
