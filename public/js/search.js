@@ -57,7 +57,7 @@ function search(e) {
                 found = true;
 
                 // Append class button HTML to search-container
-                var newClassButton = `<a href="../class/${className}">
+                var newClassButton = `<a href="../class/${className}?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}">
                 <button type="submit" name="class-button" class="class">
 
                     <div class="class-name">

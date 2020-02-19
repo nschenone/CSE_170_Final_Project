@@ -38,10 +38,10 @@
     height: 40px;
     width: 40px;
     float: right;
+    margin-top: -75px;
     margin-right: 20px;
     margin-left: -500px;
     background-color: transparent;
-    /* border-color: transparent; */
     border-radius: 100%;
 }
 
@@ -57,10 +57,10 @@
     height: 40px;
     width: 40px;
     float: right;
+    margin-top: -75px;
     margin-right: 20px;
     margin-left: -500px;
     background-color: transparent;
-    /* border-color: transparent; */
     border-radius: 100%;
 }
 
