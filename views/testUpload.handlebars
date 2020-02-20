@@ -19,10 +19,12 @@
 
 		<input type="file" id="file-input">
 
-		<form method="POST" action="/save-details">
+		<input type="submit" value="Upload file">
+
+		{{!-- <form method="POST" action="/save-details">
 			<input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
 			<input type="submit" value="Upload file">
-		</form>
+		</form> --}}
 
 		<script>
 
@@ -35,8 +37,6 @@
 				xhr.onreadystatechange = () => {
 					if (xhr.readyState === 4) {
 						if (xhr.status === 200) {
-							document.getElementById('preview').src = url;
-							document.getElementById('avatar-url').value = url;
 						}
 						else {
 							alert('Could not upload file.');

@@ -173,6 +173,24 @@ app.get('/sign-s3', (req, res) => {
   });
 });
 
+app.get('/list-s3', (req, res) => {
+  const s3 = new aws.S3();
+  const bucketPrefix = req.query['bucket-prefix'];
+
+  var params = {
+    Bucket: S3_BUCKET,
+    Delimiter: '/',
+    Prefix: bucketPrefix
+  }
+
+  s3.listObjects(params, function (err, data) {
+    if (err) throw err;
+    console.log(data);
+    res.write(JSON.stringify(data));
+    res.end();
+  });
+});
+
 /*
  * Respond to POST requests to /submit_form.
  * This function needs to be completed to handle the information in
