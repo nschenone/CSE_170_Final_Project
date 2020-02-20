@@ -50,6 +50,52 @@ const getMyClasses = (request, response) => {
   });
 }
 
+const addClassDB = (request, response) => {
+  const { name, professor } = request.body
+
+  // Check if class already in DB
+  db.query('SELECT * FROM all_classes WHERE name=$1 AND professor=$2;', [name, professor], (err, resp) => {
+    if (err) throw err;
+
+    // If class not in DB
+    if (resp.rows.length > 0) {
+
+      // Insert into my_classes from all_classes
+      db.query('INSERT INTO my_classes (name, description, professor, quarter) SELECT name, description, professor, quarter FROM all_classes WHERE name=$1 AND professor=$2;', [name, professor], (err, resp) => {
+        if (err) throw err;
+        response.status(201).send(resp.rows);
+      });
+
+    } else {
+      response.status(304).send("Class already exists");
+    }
+
+  });
+}
+
+const removeClassDB = (request, response) => {
+  const { name, professor } = request.body
+
+  // Check if class already in DB
+  db.query('SELECT * FROM my_classes WHERE name=$1 AND professor=$2;', [name, professor], (err, resp) => {
+    if (err) throw err;
+
+    // If class not in DB
+    if (resp.rows.length > 0) {
+
+      // Insert into my_classes from all_classes
+      db.query('DELETE FROM my_classes WHERE name=$1 AND professor=$2;', [name, professor], (err, resp) => {
+        if (err) throw err;
+        response.status(201).send(resp.rows);
+      });
+
+    } else {
+      response.status(304).send("Class already exists");
+    }
+
+  });
+}
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -78,6 +124,8 @@ app.get('/search', searchPage.viewSearch);
 app.get('/addClass', addClassPage.addClass);
 app.get('/queryAllClasses', getAllClasses);
 app.get('/queryMyClasses', getMyClasses);
+app.post('/addClassDB', addClassDB);
+app.post('/removeClassDB', removeClassDB);
 // Example route`
 // app.get('/users', user.list);
 
