@@ -31,7 +31,6 @@ $(".class-search").keydown(search);
 function search(e) {
     var query = input.value.toUpperCase();
     var keycode = (event.keyCode ? event.keyCode : event.which);
-
     // Look for enter key
     // if (keycode == '13') {
     // Get json data

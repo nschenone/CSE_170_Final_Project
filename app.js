@@ -11,12 +11,17 @@ var path = require('path');
 const { Client } = require('pg');
 var handlebars = require('express3-handlebars');
 
+const aws = require('aws-sdk');
+aws.config.region = 'us-west-1';
+const S3_BUCKET = process.env.S3_BUCKET;
+
 var index = require('./routes/index');
 var myClasses = require('./routes/myClasses');
 var classPage = require('./routes/class');
 var profilePage = require('./routes/profile');
 var searchPage = require('./routes/search');
 var addClassPage = require('./routes/addClass');
+var testUploadPage = require('./routes/testUpload');
 
 var app = express();
 
@@ -116,18 +121,63 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// Pages
 app.get('/', index.view);
 app.get('/myClasses', myClasses.view);
 app.get('/class/:name', classPage.viewClass);
 app.get('/profile', profilePage.viewProfile);
 app.get('/search', searchPage.viewSearch);
 app.get('/addClass', addClassPage.addClass);
+app.get('/testUploadPage', testUploadPage.upload);
+
+// DB
 app.get('/queryAllClasses', getAllClasses);
 app.get('/queryMyClasses', getMyClasses);
 app.post('/addClassDB', addClassDB);
 app.post('/removeClassDB', removeClassDB);
-// Example route`
-// app.get('/users', user.list);
+
+/*
+ * Respond to GET requests to /sign-s3.
+ * Upon request, return JSON containing the temporarily-signed S3 request and
+ * the anticipated URL of the image.
+ * https://github.com/willwebberley/NodeDirectUploader/blob/master/app.js
+ */
+// S3
+app.get('/sign-s3', (req, res) => {
+  const s3 = new aws.S3();
+  const fileName = req.query['file-name'];
+  const fileType = req.query['file-type'];
+  const s3Params = {
+    Bucket: S3_BUCKET,
+    Key: fileName,
+    Expires: 60,
+    ContentType: fileType,
+    ACL: 'public-read'
+  };
+
+  s3.getSignedUrl('putObject', s3Params, (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.end();
+    }
+    const returnData = {
+      signedRequest: data,
+      url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+    };
+    console.log(returnData);
+    res.write(JSON.stringify(returnData));
+    res.end();
+  });
+});
+
+/*
+ * Respond to POST requests to /submit_form.
+ * This function needs to be completed to handle the information in
+ * a way that suits your application.
+ */
+app.post('/save-details', (req, res) => {
+  // TODO: Read POSTed form data and do something useful
+});
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
