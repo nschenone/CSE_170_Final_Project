@@ -22,7 +22,7 @@ exports.viewClassNotes = function (req, res) {
   var classProfessor = req.query.professor;
   var classQuarter = req.query.quarter;
 
-  res.render('classnotes', { "className": className, "classDescription": classDescription, "classProfessor": classProfessor, "classQuarter": classQuarter });
+  res.render('classNotes', { "className": className, "classDescription": classDescription, "classProfessor": classProfessor, "classQuarter": classQuarter });
 };
 
 exports.viewClassPracticeExams = function (req, res) {
@@ -31,5 +31,5 @@ exports.viewClassPracticeExams = function (req, res) {
   var classProfessor = req.query.professor;
   var classQuarter = req.query.quarter;
 
-  res.render('practiceexams', { "className": className, "classDescription": classDescription, "classProfessor": classProfessor, "classQuarter": classQuarter });
+  res.render('practiceExams', { "className": className, "classDescription": classDescription, "classProfessor": classProfessor, "classQuarter": classQuarter });
 };
