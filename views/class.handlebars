@@ -38,34 +38,43 @@
 
 		<div class="class-container">
 
-			<button type="submit" name="class-button" class="class">
+			<a
+				href="./{{className}}/textbooks?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
 
-				<div class="class-name">
-					Textbooks <img src="../images/arrow.png" class="arrow-class">
-				</div>
+					<div class="class-name">
+						Textbooks <img src="../images/arrow.png" class="arrow-class">
+					</div>
 
-			</button>
+				</button>
+			</a>
 
-			<button type="submit" name="class-button" class="class">
+			<a
+				href="./{{className}}/classnotes?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
 
-				<div class="class-name">
-					Class Notes <img src="../images/arrow.png" class="arrow-class">
-				</div>
-			</button>
+					<div class="class-name">
+						Class Notes <img src="../images/arrow.png" class="arrow-class">
+					</div>
+				</button>
+			</a>
 
-			<button type="submit" name="class-button" class="class">
+			<a
+				href="./{{className}}/practiceexams?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
 
-				<div class="class-name">
-					Practice Exams <img src="../images/arrow.png" class="arrow-class">
-				</div>
-			</button>
+					<div class="class-name">
+						Practice Exams <img src="../images/arrow.png" class="arrow-class">
+					</div>
+				</button>
+			</a>
 
-			<button type="submit" name="class-button" class="class">
+			{{!-- <button type="submit" name="class-button" class="class">
 
 				<div class="class-name">
 					Class Members <img src="../images/arrow.png" class="arrow-class">
 				</div>
-			</button>
+			</button> --}}
 
 		</div>
 
