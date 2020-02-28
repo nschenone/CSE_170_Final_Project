@@ -1,0 +1,273 @@
+.bg {
+    background-color: white;
+    width: 360px;
+    height: 640px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.header {
+    background-color: #393F4D;
+    width: 358px;
+    height: 115px;
+    text-align: center;
+}
+
+.header-text {
+    color: #D4D4DC;
+    font-size: 30px;
+    position: relative;
+    top: 40%;
+}
+
+.class {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    width: 346px;
+    height: 92px;
+    text-align: left;
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.class-add-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-top: -75px;
+    margin-right: 20px;
+    margin-left: -500px;
+    background-color: transparent;
+    border-radius: 100%;
+}
+
+.class-add-button img {
+    position: absolute;
+    top: 6%;
+    left: 84%;
+}
+
+.class-remove-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-top: -75px;
+    margin-right: 20px;
+    margin-left: -500px;
+    background-color: transparent;
+    border-radius: 100%;
+}
+
+.class-remove-button img {
+    position: absolute;
+    top: 6%;
+    left: 84%;
+}
+
+.class-name {
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+
+.form-text {
+    font-size: 15px;
+    padding-bottom: 0px;
+}
+
+.class-description {
+    font-size: 15px;
+    padding-top: 0px;
+    padding-bottom: 3px;
+}
+
+.class-professor {
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.class-quarter {
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.class-container {
+    width: 358px;
+    height: 457px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #393F4D;
+    width: 358px;
+    height: 68px;
+    position: absolute;
+    top: 572px;
+    left: 1;
+    text-align: center;
+}
+
+.middle {
+    /* background-color: #393F4D; */
+    /* width: 358px; */
+    /* height: 68px; */
+    position: absolute;
+    top: 250;
+    /* left: 1; */
+    /* text-align: center; */
+}
+
+.footer-buttons {
+    position: relative;
+    left: 4%;
+    top: 4%;
+}
+
+.footer-image-search {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 3%;
+}
+
+.footer-image-search-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 3%;
+}
+
+.footer-image-classes {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 33%;
+}
+
+.footer-image-classes-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 33%;
+}
+
+.footer-image-profile {
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 63%;
+}
+
+.footer-image-profile-active {
+    filter: sepia(100%);
+    background-color: transparent;
+    border-radius: 15%;
+    vertical-align: center;
+    position: absolute;
+    left: 63%;
+}
+
+.arrow {
+    margin-left: 250px;
+}
+
+.arrow-class {
+    margin-left: 300px;
+}
+
+a {
+    color:  #D4D4DC;
+}
+
+.login-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    font-size: 12px;
+    width: 120px;
+    height: 40px;
+    text-align: middle;
+    margin: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.login-buttons {
+    margin: 6px;
+    padding-left: 40px;
+    padding-right: 5px;
+}
+
+.login-form {   
+    margin: 6px;
+    padding-left: 50px;
+    padding-right: 5px;
+}
+
+.form-item {   
+    width: 250px;
+}
+
+.profile-container {
+    width: 358px;
+    height: 457px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-decoration: none;
+    margin: 6px;
+    padding-top: 50px;
+    padding-left: 90px;
+    padding-right: 5px;
+}
+
+.profile-button {
+    background-color: #8C8CA0;
+    color: #D4D4DC;
+    font-size: 12px;
+    width: 170px;
+    height: 40px;
+    text-align: middle;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.profile-image {
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+.class-search {
+    margin: 10px;
+    width: 337px
+}
+
+.search-container {
+    width: 358px;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-decoration: none;
+}
+
+.not-found-text {
+    padding-left: 135px;
+    padding-top: 10px;
+    font-size: 20px;
+}
