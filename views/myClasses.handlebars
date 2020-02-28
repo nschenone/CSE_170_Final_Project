@@ -8,87 +8,81 @@
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+	{{!-- <link href="css/style.css" rel="stylesheet"> --}}
+
+	{{!-- CSS --}}
 	<link href="css/newStyle.css" rel="stylesheet">
+
+	{{!-- Font Awesome --}}
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	{{!-- Google Fonts (Roboto) --}}
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="bg">
-		<div class="header">
-			<div class="header-text">My Classes New</div>
-		</div>
-
-		<div class="class-container">
-
+	<div class="container">
+		<header class="app-header">
+			<h3>My Classes</h3>
+		</header>
+		<div class="content">
 			{{#each classes}}
 			<a href="class/{{name}}?description={{description}}&professor={{professor}}&quarter={{quarter}}">
-				<button type=" submit" name="class-button" class="class">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							<div class="class-name">
+								{{name}}
+							</div>
 
-					<div class="class-name">
-						{{name}}
-					</div>
+							<div class="class-description">
+								{{description}}
+							</div>
 
-					<div class="class-description">
-						{{description}}
-					</div>
+							<div class="class-professor">
+								{{professor}}
+							</div>
 
-					<div class="class-professor">
-						{{professor}}
+							<div class="class-quarter">
+								{{quarter}}
+							</div>
+						</div>
+						<i class="fa fa-chevron-right"></i>
 					</div>
-
-					<div class="class-quarter">
-						{{quarter}} <img src="images/arrow.png" class="arrow">
-					</div>
+				</div>
 			</a>
 			{{/each}}
-
 		</div>
 
-	</div>
-
-
-	<div class="footer">
-		<div class="footer-buttons">
-			<a href="search/">
-				<button type="submit" name="search" class="footer-image-search">
-					<img src="images/search_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="/myClasses">
-				<button type="submit" name="classes" class="footer-image-classes-active">
-					<img src="images/my_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="profile/">
-				<button type="submit" name="profile" class="footer-image-profile">
-					<img src="images/my_profile_resize.png">
-				</button>
-			</a>
-		</div>
-	</div>
-
-	<footer class="app-footer">
-		<ul>
-			<li>
-				<i class="fa fa-heart"></i>
-				Home
-			</li>
-			<li>
-				<i class="fa fa-barcode"></i>
-				Show Card
-			</li>
-			<li>
-				<i class="fa fa-user"></i>
-				Account
-			</li>
-			<li>
-				<i class="fa fa-map-marker"></i>
-				Find Store
-			</li>
-		</ul>
-	</footer>
-
+		<footer class="app-footer">
+			<ul>
+				<a href="search/">
+					<li>
+						<i class="fa fa-search"></i>
+						{{!-- <p>Search Classes</p> --}}
+						<p>Search</p>
+					</li>
+				</a>
+				<a href="/myClasses">
+					<li>
+						<i class="fa fa-book active"></i>
+						{{!-- <p>My Classes</p> --}}
+						<p>Classes</p>
+					</li>
+				</a>
+				<a href="profile/">
+					<li>
+						<i class="fa fa-user"></i>
+						{{!-- <p>My Profile</p> --}}
+						<p>Profile</p>
+					</li>
+				</a>
+			</ul>
+		</footer>
 	</div>
 
 	<script src="js/jquery-1.11.0.js"></script>

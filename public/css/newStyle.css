@@ -1,273 +1,110 @@
-.bg {
-    background-color: white;
-    width: 360px;
-    height: 640px;
-    border: 1px;
-    border-style: solid;
-    border-color: black;
+:root {
+    --primary-color: #393F4D;
+    --secondary-color: #D4D4DC;
 }
 
-.header {
-    background-color: #393F4D;
-    width: 358px;
-    height: 115px;
-    text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.header-text {
-    color: #D4D4DC;
-    font-size: 30px;
-    position: relative;
-    top: 40%;
+html, body {
+    font-family: 'Roboto', sans-serif;
 }
 
-.class {
-    background-color: #8C8CA0;
-    color: #D4D4DC;
-    width: 346px;
-    height: 92px;
-    text-align: left;
-    margin: 6px;
-    padding-left: 5px;
-    padding-right: 5px;
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
-.class-add-button {
-    background-color: #8C8CA0;
-    color: #D4D4DC;
-    height: 40px;
-    width: 40px;
-    float: right;
-    margin-top: -75px;
-    margin-right: 20px;
-    margin-left: -500px;
-    background-color: transparent;
-    border-radius: 100%;
+.app-header {
+    background-color: var(--primary-color);
+    /* box-shadow: 2px 2px 5px #888; */
+    display: flex;
+    height: 170px;
+    margin-bottom: 15px;
 }
 
-.class-add-button img {
-    position: absolute;
-    top: 6%;
-    left: 84%;
+.app-header h3 {
+    color: var(--secondary-color);
+    margin: auto;
 }
 
-.class-remove-button {
-    background-color: #8C8CA0;
-    color: #D4D4DC;
-    height: 40px;
-    width: 40px;
-    float: right;
-    margin-top: -75px;
-    margin-right: 20px;
-    margin-left: -500px;
-    background-color: transparent;
-    border-radius: 100%;
+.content {
+    overflow: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.class-remove-button img {
-    position: absolute;
-    top: 6%;
-    left: 84%;
+.container a,a:hover {
+  /* color: #212529; */
+  /* text-decoration: none; */
+  color: black;
+}
+
+.content .card-block {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
 }
 
 .class-name {
     font-size: 20px;
-    padding-bottom: 0px;
-}
-
-.form-text {
-    font-size: 15px;
-    padding-bottom: 0px;
 }
 
 .class-description {
-    font-size: 15px;
-    padding-top: 0px;
-    padding-bottom: 3px;
+    font-size: 16px;
 }
 
 .class-professor {
-    font-size: 12px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    font-size: 14px;
 }
 
 .class-quarter {
-    font-size: 12px;
-    padding-top: 0px;
-    padding-bottom: 5px;
+    font-size: 14px;
 }
 
-.class-container {
-    width: 358px;
-    height: 457px;
-    overflow-x: hidden;
-    overflow-x: auto;
-    text-decoration: none;
+.app-footer {
+    flex-shrink: 0;
+    margin-top: 15px;
+    height: 60px;
+    background:var(--primary-color);
+    padding: 9px;
 }
 
-.footer {
-    background-color: #393F4D;
-    width: 358px;
-    height: 68px;
-    position: absolute;
-    top: 572px;
-    left: 1;
-    text-align: center;
+.app-footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* justify-content: space-around; */
+    list-style: none;
 }
 
-.middle {
-    /* background-color: #393F4D; */
-    /* width: 358px; */
-    /* height: 68px; */
-    position: absolute;
-    top: 250;
-    /* left: 1; */
-    /* text-align: center; */
+.app-footer ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-color);
 }
 
-.footer-buttons {
-    position: relative;
-    left: 4%;
-    top: 4%;
-}
-
-.footer-image-search {
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 3%;
-}
-
-.footer-image-search-active {
+.app-footer ul li .active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-color);
     filter: sepia(100%);
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 3%;
 }
 
-.footer-image-classes {
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 33%;
+.app-footer ul li i {
+    font-size: 22px;
+    margin-bottom: 2px;
 }
 
-.footer-image-classes-active {
-    filter: sepia(100%);
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 33%;
-}
-
-.footer-image-profile {
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 63%;
-}
-
-.footer-image-profile-active {
-    filter: sepia(100%);
-    background-color: transparent;
-    border-radius: 15%;
-    vertical-align: center;
-    position: absolute;
-    left: 63%;
-}
-
-.arrow {
-    margin-left: 250px;
-}
-
-.arrow-class {
-    margin-left: 300px;
-}
-
-a {
-    color:  #D4D4DC;
-}
-
-.login-button {
-    background-color: #8C8CA0;
-    color: #D4D4DC;
-    font-size: 12px;
-    width: 120px;
-    height: 40px;
-    text-align: middle;
-    margin: 6px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.login-buttons {
-    margin: 6px;
-    padding-left: 40px;
-    padding-right: 5px;
-}
-
-.login-form {   
-    margin: 6px;
-    padding-left: 50px;
-    padding-right: 5px;
-}
-
-.form-item {   
-    width: 250px;
-}
-
-.profile-container {
-    width: 358px;
-    height: 457px;
-    overflow-x: hidden;
-    overflow-x: auto;
-    text-decoration: none;
-    margin: 6px;
-    padding-top: 50px;
-    padding-left: 90px;
-    padding-right: 5px;
-}
-
-.profile-button {
-    background-color: #8C8CA0;
-    color: #D4D4DC;
-    font-size: 12px;
-    width: 170px;
-    height: 40px;
-    text-align: middle;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.profile-image {
-    padding-left: 20px;
-    padding-right: 5px;
-}
-
-.class-search {
-    margin: 10px;
-    width: 337px
-}
-
-.search-container {
-    width: 358px;
-    height: 400px;
-    overflow-x: hidden;
-    overflow-x: auto;
-    text-decoration: none;
-}
-
-.not-found-text {
-    padding-left: 135px;
-    padding-top: 10px;
-    font-size: 20px;
+.app-footer ul li p {
+    font-size: 14px;
+    margin-bottom: -7;
 }
