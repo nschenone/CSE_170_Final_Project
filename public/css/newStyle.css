@@ -10,6 +10,7 @@
 }
 
 html, body {
+    height: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -25,8 +26,10 @@ html, body {
     background-color: var(--primary-color);
     /* box-shadow: 2px 2px 5px #888; */
     display: flex;
-    height: 170px;
+    height: 140px;
     margin-bottom: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .app-header h3 {
@@ -38,6 +41,7 @@ html, body {
     overflow: auto;
     margin-left: 10px;
     margin-right: 10px;
+    flex: 1;
 }
 
 .container a,a:hover {
@@ -50,6 +54,23 @@ html, body {
     display: flex;
     justify-content: space-between;
     background-color: var(--secondary-color);
+}
+
+.centered {
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* padding: 50px; */
+}
+
+.centered-inner {
+    margin: auto;
+    padding-top: 50px;
+}
+
+.centered img {
+    width: 100px;
+    justify-content: center;
 }
 
 .class-name {
@@ -69,6 +90,7 @@ html, body {
 }
 
 .app-footer {
+    flex-grow: 0;
     flex-shrink: 0;
     margin-top: 15px;
     height: 60px;
@@ -107,4 +129,8 @@ html, body {
 .app-footer ul li p {
     font-size: 14px;
     margin-bottom: -7;
+}
+
+.profile-button {
+    height: 60px;
 }
