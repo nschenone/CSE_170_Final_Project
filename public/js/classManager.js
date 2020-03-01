@@ -40,7 +40,7 @@ function updateButton() {
 
     var infoText = $(".info-text").text().toString().trim().split("\n");
     currClass = infoText[0].trim();
-    currProf = infoText[3].trim();
+    currProf = infoText[1].trim();
 
     var allClassData = allClassesJSON.classes;
     var allClassLen = allClassData.length;
@@ -57,42 +57,34 @@ function updateButton() {
             // Match - push new class
             if (className == currClass & classProfessor == currProf) {
                 if (inMyClass() == false) {
+                    console.log("MATCH");
                     // Update button
                     $(".header-text").html(`
-                    <div>
-                        <div class="info-text">
-                            <div>
-                                <p>${className}</p>
-                            </div>
-                            <div>
-                                <h5>${classProfessor}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <button type=" submit" name="class-button" class="class-add-button">
-                            <img src="../images/plus.png" style="padding-right:30px">
-                        </button>
-                    </a>`)
+                    <a href="/myClasses">
+						<i class="fa fa-arrow-left back-button"></i>
+					</a>
+					<div class="centered-inner info-text">
+						<h3>${className}</h3>
+						<h5>${classProfessor}</h5>
+					</div>
+					<a href="#">
+						<i class="fa fa-plus class-add-button"></i>
+					</a>`)
                 }
 
                 else if (inMyClass() == true) {
+                    console.log("NO MATCH");
                     $(".header-text").html(`
-                    <div>
-                        <div class="info-text">
-                            <div>
-                                <p>${className}</p>
-                            </div>
-                            <div>
-                                <h5>${classProfessor}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <button type=" submit" name="class-button" class="class-remove-button">
-                            <img src="../images/minus.png" style="padding-right:30px">
-                        </button>
-                    </a>`)
+                    <a href="/myClasses">
+						<i class="fa fa-arrow-left back-button"></i>
+					</a>
+					<div class="centered-inner info-text">
+						<h3>${className}</h3>
+						<h5>${classProfessor}</h5>
+					</div>
+					<a href="#">
+						<i class="fa fa-minus class-remove-button"></i>
+					</a>`)
                 }
             }
         }

@@ -1,53 +1,70 @@
 <html>
 
 <head>
-	<title>Search Classes</title>
+	<title>Search</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Bootstrap -->
-	<link href="../css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap-theme.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+	{{!-- <link href="css/style.css" rel="stylesheet"> --}}
+
+	{{!-- CSS --}}
+	<link href="/css/newStyle.css" rel="stylesheet">
+
+	{{!-- Font Awesome --}}
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	{{!-- Google Fonts (Roboto) --}}
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="bg">
-		<div class="header">
-			<div class="header-text">Search Classes</div>
-		</div>
+	<div class="container">
+		<header class="app-header">
+			<h3>Search Classes</h3>
+		</header>
 
 		<input class="form-control class-search" id="search-box" type="text" placeholder="Search" aria-label="Search">
 
-		<div class="search-container"></div>
-
-		<div class="footer">
-			<div class="footer-buttons">
-				<a href="#">
-					<button type="submit" name="search" class="footer-image-search-active">
-						<img src="../images/search_classes_resize.png">
-					</button>
-				</a>
-
-				<a href="/myClasses">
-					<button type="submit" name="classes" class="footer-image-classes">
-						<img src="../images/my_classes_resize.png">
-					</button>
-				</a>
-
-				<a href="../profile/">
-					<button type="submit" name="profile" class="footer-image-profile">
-						<img src="../images/my_profile_resize.png">
-					</button>
-				</a>
-			</div>
+		<div class="search-container content">
 		</div>
-	</div>
+
+		<footer class="app-footer">
+			<ul>
+				<a href="/search">
+					<li>
+						<i class="fa fa-search active"></i>
+						{{!-- <p>Search Classes</p> --}}
+						<p>Search</p>
+					</li>
+				</a>
+				<a href="/myClasses">
+					<li>
+						<i class="fa fa-book"></i>
+						{{!-- <p>My Classes</p> --}}
+						<p>Classes</p>
+					</li>
+				</a>
+				<a href="/profile">
+					<li>
+						<i class="fa fa-user"></i>
+						{{!-- <p>My Profile</p> --}}
+						<p>Profile</p>
+					</li>
+				</a>
+			</ul>
+		</footer>
 	</div>
 
-	<script src="../js/jquery-1.11.0.js"></script>
-	<script src="../js/bootstrap.js"></script>
-	<script src="../js/search.js"></script>
+	<script src="/js/jquery-1.11.0.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/search.js"></script>
 </body>
 
 </html>

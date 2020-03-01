@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Practice Exams</title>
+	<title>Textbooks B</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,10 +40,10 @@
 					</button> --}}
 					</a>
 					<div class="centered-inner info-text">
-						<h3>Practice Exams</h3>
+						<h3>Textbooks B</h3>
 						<h5>{{className}}</h5>
 					</div>
-					<div id="upload-button" class="file-upload">
+					<div id="upload-button" class="file-upload" style="opacity: 0; pointer-events:none;">
 						<label for="file-input">
 							<i class="fa fa-upload"></i>
 						</label>
@@ -57,13 +57,13 @@
 			</div>
 		</header>
 		<div class="content">
-			{{!-- <input type="file" id="file-input-2"></input>
+			<input type="file" id="file-input-2"></input>
 
 			<div class="upload-design-2-container">
 				<input class="upload-design-2" type="submit" id="upload-button-2" value="Upload file"></input>
 
 				<input class="upload-design-2" type="submit" id="list-contents-button" value="List Contents">
-			</div> <br> --}}
+			</div> <br>
 
 			<div class="content-container"></div>
 
@@ -105,10 +105,10 @@
 							if (xhr.status === 200) {
 								const response = JSON.parse(xhr.responseText);
 								// Design 1
-								$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
+								//$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
 
 								// Design 2
-								//uploadFile(file, response.signedRequest, response.url);
+								uploadFile(file, response.signedRequest, response.url);
 							}
 							else {
 								alert('Could not get signed URL.');
@@ -132,7 +132,7 @@
 						className = document.getElementsByName('className')[0].content;
 						classProfessor = document.getElementsByName('classProfessor')[0].content;
 						classQuarter = document.getElementsByName('classQuarter')[0].content;
-						folderName = className + classProfessor + classQuarter + "/practiceexams";
+						folderName = className + classProfessor + classQuarter + "/textbooks";
 						var blob = file.slice(0, file.size, file.type);
 						newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
 						getSignedRequest(newFile);
@@ -153,7 +153,7 @@
 						className = document.getElementsByName('className')[0].content;
 						classProfessor = document.getElementsByName('classProfessor')[0].content;
 						classQuarter = document.getElementsByName('classQuarter')[0].content;
-						folderName = className + classProfessor + classQuarter + "/practiceexams";
+						folderName = className + classProfessor + classQuarter + "/textbooks";
 						var blob = file.slice(0, file.size, file.type);
 						newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
 						getSignedRequest(newFile);
@@ -164,7 +164,7 @@
 					className = document.getElementsByName('className')[0].content;
 					classProfessor = document.getElementsByName('classProfessor')[0].content;
 					classQuarter = document.getElementsByName('classQuarter')[0].content;
-					folderName = className + classProfessor + classQuarter + "/practiceexams";
+					folderName = className + classProfessor + classQuarter + "/textbooks";
 					const xhr = new XMLHttpRequest();
 					xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
 					xhr.onreadystatechange = () => {
@@ -198,7 +198,7 @@
 					className = document.getElementsByName('className')[0].content;
 					classProfessor = document.getElementsByName('classProfessor')[0].content;
 					classQuarter = document.getElementsByName('classQuarter')[0].content;
-					folderName = className + classProfessor + classQuarter + "/practiceexams";
+					folderName = className + classProfessor + classQuarter + "/textbooks";
 					const xhr = new XMLHttpRequest();
 					xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
 					xhr.onreadystatechange = () => {
@@ -236,13 +236,13 @@
 
 				(() => {
 					// Design 1
-					document.getElementById('upload-button').onchange = initUpload;
-					listBucketContents();
+					//document.getElementById('upload-button').onchange = initUpload;
+					//listBucketContents();
 
 					// Design 2
-					//document.getElementById('upload-button-2').onclick = initUpload2;
-					//document.getElementById('list-contents-button').onclick = listBucketContents;
-					//listBucketContents();
+					document.getElementById('upload-button-2').onclick = initUpload2;
+					document.getElementById('list-contents-button').onclick = listBucketContents;
+					listBucketContents();
 				})();
 
 			</script>

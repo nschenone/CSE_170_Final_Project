@@ -1,81 +1,95 @@
 <html>
 
 <head>
-	<title>My Profile</title>
+	<title>Profile</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Bootstrap -->
-	<link href="../css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap-theme.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+	{{!-- <link href="css/style.css" rel="stylesheet"> --}}
+
+	{{!-- CSS --}}
+	<link href="/css/newStyle.css" rel="stylesheet">
+
+	{{!-- Font Awesome --}}
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	{{!-- Google Fonts (Roboto) --}}
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="bg">
-		<div class="header">
-			<div class="header-text">My Profile</div>
-		</div>
+	<div class="container">
+		<header class="app-header">
+			<h3>My Profile</h3>
+		</header>
+		<div class="content centered">
+			<div class="centered-inner">
+				<img src="../images/profile_pic_placeholder.png" class="profile-image"> <br><br>
 
-		<div class="profile-container">
-			<img src="../images/profile_pic_placeholder.png" class="profile-image"> <br><br>
+				{{!-- <label for="fname">Name:</label>Jimmy <br> --}}
 
-			<label for="fname">Name:</label>
-			Jimmy <br>
+				Name: Jimmy<br>
 
-			<label for="lname">Email:</label>
-			jimmy@ucsd.edu <br>
+				{{!-- <label for="lname">Email:</label>
+			jimmy@ucsd.edu <br> --}}
 
-			<label for="lname">Contact Info:</label>
-			(123) 456-7890 <br>
+				Email: jimmy@ucsd.edu<br>
 
-			<a href="#">
-				<button type="submit" name="class-button" class="profile-button">
-					<div class="form-text">
-						Update Password
+				{{!-- <label for="lname">Contact Info:</label>
+			(123) 456-7890 <br> --}}
+
+				Contact Info: (123) 456-7890<br><br>
+
+				<a href="/">
+					<div class="card card-neutral mb-2">
+						<div class="card-block profile-button">
+							<div>
+								Logout
+							</div>
+							{{!-- <i class="fa fa-chevron-right"></i> --}}
+						</div>
 					</div>
-				</button>
-			</a>
-
-			<a href="/">
-				<button type="submit" name="class-button" class="profile-button">
-					<div class="form-text">
-						Logout
-					</div>
-				</button>
-			</a>
+				</a>
+			</div>
 		</div>
 
-
+		<footer class="app-footer">
+			<ul>
+				<a href="/search">
+					<li>
+						<i class="fa fa-search"></i>
+						{{!-- <p>Search Classes</p> --}}
+						<p>Search</p>
+					</li>
+				</a>
+				<a href="/myClasses">
+					<li>
+						<i class="fa fa-book"></i>
+						{{!-- <p>My Classes</p> --}}
+						<p>Classes</p>
+					</li>
+				</a>
+				<a href="/profile">
+					<li>
+						<i class="fa fa-user active"></i>
+						{{!-- <p>My Profile</p> --}}
+						<p>Profile</p>
+					</li>
+				</a>
+			</ul>
+		</footer>
 	</div>
 
-
-	<div class="footer">
-		<div class="footer-buttons">
-			<a href="../search/">
-				<button type="submit" name="search" class="footer-image-search">
-					<img src="../images/search_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="/myClasses">
-				<button type="submit" name="classes" class="footer-image-classes">
-					<img src="../images/my_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="#">
-				<button type="submit" name="profile" class="footer-image-profile-active">
-					<img src="../images/my_profile_resize.png">
-				</button>
-			</a>
-		</div>
-	</div>
-	</div>
-
-	<script src="../js/jquery-1.11.0.js"></script>
-	<script src="../js/bootstrap.js"></script>
-	<script src="../js/home.js"></script>
+	<script src="/js/jquery-1.11.0.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/home.js"></script>
 </body>
 
 </html>
