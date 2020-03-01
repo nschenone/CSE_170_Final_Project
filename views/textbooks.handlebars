@@ -103,7 +103,6 @@
 							if (xhr.status === 200) {
 								const response = JSON.parse(xhr.responseText);
 								$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
-								//uploadFile(file, response.signedRequest, response.url);
 							}
 							else {
 								alert('Could not get signed URL.');
