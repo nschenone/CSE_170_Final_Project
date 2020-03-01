@@ -1,0 +1,112 @@
+<html>
+
+<head>
+	<title>{{className}}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/bootstrap-theme.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+</head>
+{{!-- href="../../addClass?name={{className}}&description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}" --}}
+
+<body>
+	<div class="bg">
+		<div class="header">
+			<div class="header-text">
+				<div>
+					<div class="info-text">
+						<div>
+							{{!-- <p class="class-info-text">{{className}}</p> --}}
+							<p>{{className}}</p>
+						</div>
+						<div>
+							<h5>{{classProfessor}}</h5>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<button type=" submit" name="class-button" class="class-add-button">
+						<img src="../images/plus.png" style="">
+					</button>
+				</a>
+			</div>
+
+		</div>
+
+		<div class="class-container">
+
+			<a
+				href="./{{className}}/textbooks?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
+
+					<div class="class-name">
+						Textbooks <img src="../images/arrow.png" class="arrow-class">
+					</div>
+
+				</button>
+			</a>
+
+			<a
+				href="./{{className}}/classnotes?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
+
+					<div class="class-name">
+						Class Notes <img src="../images/arrow.png" class="arrow-class">
+					</div>
+				</button>
+			</a>
+
+			<a
+				href="./{{className}}/practiceexams?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
+				<button type="submit" name="class-button" class="class">
+
+					<div class="class-name">
+						Practice Exams <img src="../images/arrow.png" class="arrow-class">
+					</div>
+				</button>
+			</a>
+
+			{{!-- <button type="submit" name="class-button" class="class">
+
+				<div class="class-name">
+					Class Members <img src="../images/arrow.png" class="arrow-class">
+				</div>
+			</button> --}}
+
+		</div>
+
+	</div>
+
+
+	<div class="footer">
+		<div class="footer-buttons">
+			<a href="../../search/">
+				<button type="submit" name="search" class="footer-image-search">
+					<img src="../images/search_classes_resize.png">
+				</button>
+			</a>
+
+			<a href="/myClasses">
+				<button type="submit" name="classes" class="footer-image-classes">
+					<img src="../images/my_classes_resize.png">
+				</button>
+			</a>
+
+			<a href="../../profile/">
+				<button type="submit" name="profile" class="footer-image-profile">
+					<img src="../images/my_profile_resize.png">
+				</button>
+			</a>
+		</div>
+	</div>
+	</div>
+
+	<script src="../js/jquery-1.11.0.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/classManager.js"></script>
+</body>
+
+</html>

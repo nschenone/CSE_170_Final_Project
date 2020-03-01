@@ -8,100 +8,109 @@
 	<!-- Bootstrap -->
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/bootstrap-theme.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+	{{!-- <link href="css/style.css" rel="stylesheet"> --}}
+
+	{{!-- CSS --}}
+	<link href="../css/newStyle.css" rel="stylesheet">
+
+	{{!-- Font Awesome --}}
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	{{!-- Google Fonts (Roboto) --}}
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
-{{!-- href="../../addClass?name={{className}}&description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}" --}}
 
 <body>
-	<div class="bg">
-		<div class="header">
-			<div class="header-text">
-				<div>
-					<div class="info-text">
-						<div>
-							{{!-- <p class="class-info-text">{{className}}</p> --}}
-							<p>{{className}}</p>
-						</div>
-						<div>
-							<h5>{{classProfessor}}</h5>
-						</div>
+	<div class="container">
+		<header class="app-header">
+			<div class="centered-outer">
+				<div class="centered-inner-buttons header-text">
+					<a href="/myClasses">
+						<i class="fa fa-arrow-left back-button"></i>
+						{{!-- <button type=" submit" name="class-button" class="class-add-button">
+						<img src="../images/plus.png" style="">
+					</button> --}}
+					</a>
+					<div class="centered-inner info-text">
+						<h3>{{className}}</h3>
+						<h5>{{classProfessor}}</h5>
 					</div>
+					<a href="#">
+						<i class="fa fa-plus class-add-button"></i>
+					</a>
 				</div>
-				<a href="#">
-					<button type=" submit" name="class-button" class="class-add-button">
-						<img src="../images/plus.png" style="padding-right:30px">
-					</button>
-				</a>
+
 			</div>
 
-		</div>
+		</header>
 
-		<div class="class-container">
-
+		<div class="content">
 			<a
 				href="./{{className}}/textbooks?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
-				<button type="submit" name="class-button" class="class">
-
-					<div class="class-name">
-						Textbooks <img src="../images/arrow.png" class="arrow-class">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							Textbooks
+						</div>
+						<i class="fa fa-chevron-right"></i>
 					</div>
-
-				</button>
+				</div>
 			</a>
 
 			<a
 				href="./{{className}}/classnotes?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
-				<button type="submit" name="class-button" class="class">
-
-					<div class="class-name">
-						Class Notes <img src="../images/arrow.png" class="arrow-class">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							Class Notes
+						</div>
+						<i class="fa fa-chevron-right"></i>
 					</div>
-				</button>
+				</div>
 			</a>
 
 			<a
 				href="./{{className}}/practiceexams?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
-				<button type="submit" name="class-button" class="class">
-
-					<div class="class-name">
-						Practice Exams <img src="../images/arrow.png" class="arrow-class">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							Practice Exams
+						</div>
+						<i class="fa fa-chevron-right"></i>
 					</div>
-				</button>
-			</a>
-
-			{{!-- <button type="submit" name="class-button" class="class">
-
-				<div class="class-name">
-					Class Members <img src="../images/arrow.png" class="arrow-class">
 				</div>
-			</button> --}}
-
-		</div>
-
-	</div>
-
-
-	<div class="footer">
-		<div class="footer-buttons">
-			<a href="../../search/">
-				<button type="submit" name="search" class="footer-image-search">
-					<img src="../images/search_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="/myClasses">
-				<button type="submit" name="classes" class="footer-image-classes">
-					<img src="../images/my_classes_resize.png">
-				</button>
-			</a>
-
-			<a href="../../profile/">
-				<button type="submit" name="profile" class="footer-image-profile">
-					<img src="../images/my_profile_resize.png">
-				</button>
 			</a>
 		</div>
-	</div>
+
+		<footer class="app-footer">
+			<ul>
+				<a href="/search">
+					<li>
+						<i class="fa fa-search"></i>
+						{{!-- <p>Search Classes</p> --}}
+						<p>Search</p>
+					</li>
+				</a>
+				<a href="/myClasses">
+					<li>
+						<i class="fa fa-book"></i>
+						{{!-- <p>My Classes</p> --}}
+						<p>Classes</p>
+					</li>
+				</a>
+				<a href="/profile">
+					<li>
+						<i class="fa fa-user"></i>
+						{{!-- <p>My Profile</p> --}}
+						<p>Profile</p>
+					</li>
+				</a>
+			</ul>
+		</footer>
 	</div>
 
 	<script src="../js/jquery-1.11.0.js"></script>

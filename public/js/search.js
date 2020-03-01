@@ -56,26 +56,30 @@ function search(e) {
                 found = true;
 
                 // Append class button HTML to search-container
-                var newClassButton = `<a href="../class/${className}?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}">
-                <button type="submit" name="class-button" class="class">
+                var newClassButton = `<a href="class/${className}?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							<div class="class-name">
+								${className}
+							</div>
 
-                    <div class="class-name">
-                        ${className}
-                    </div>
+							<div class="class-description">
+								${classDescription}
+							</div>
 
-                    <div class="class-description">
-                        ${classDescription}
-                    </div>
+							<div class="class-professor">
+								${classProfessor}
+							</div>
 
-                    <div class="class-professor">
-						${classProfessor}
+							<div class="class-quarter">
+								${classQuarter}
+							</div>
+						</div>
+						<i class="fa fa-chevron-right"></i>
 					</div>
-
-                    <div class="class-quarter">
-                        ${classQuarter} <img src="../images/arrow.png" class="arrow">
-                    </div>
-                </a>
-                `
+				</div>
+			</a>`
 
                 $(".search-container").append(newClassButton);
             }
