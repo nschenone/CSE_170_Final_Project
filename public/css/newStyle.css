@@ -176,3 +176,7 @@ html, body {
 .class-search {
     margin-bottom: 20px;
 }
+
+.file-upload input {
+    display: none;
+}

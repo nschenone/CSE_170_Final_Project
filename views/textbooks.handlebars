@@ -43,19 +43,25 @@
 						<h3>Textbooks</h3>
 						<h5>{{className}}</h5>
 					</div>
-					<a href="#">
+					<div id="upload-button" class="file-upload">
+						<label for="file-input">
+							<i class="fa fa-upload"></i>
+						</label>
+						<input id="file-input" type="file">
+					</div>
+					{{!-- <a href="#">
 						<i class="fa fa-upload"></i>
-					</a>
+					</a> --}}
 				</div>
 
 			</div>
 		</header>
 		<div class="content">
-			<input type="file" id="file-input"></input>
+			{{!-- <input type="file" id="file-input"></input>
 
 			<input type="submit" id="upload-button" value="Upload file">
 
-			<input type="submit" id="list-contents-button" value="List Contents">
+			<input type="submit" id="list-contents-button" value="List Contents"> --}}
 
 			<div class="content-container"></div>
 
@@ -72,7 +78,7 @@
 				function uploadFile(file, signedRequest, url) {
 					const xhr = new XMLHttpRequest();
 					xhr.open('PUT', signedRequest);
-					xhr.onreadystatechange = () => {
+					xhr.onreadystatechange = async () => {
 						if (xhr.readyState === 4) {
 							if (xhr.status === 200) {
 							}
@@ -96,7 +102,8 @@
 						if (xhr.readyState === 4) {
 							if (xhr.status === 200) {
 								const response = JSON.parse(xhr.responseText);
-								uploadFile(file, response.signedRequest, response.url);
+								$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
+								//uploadFile(file, response.signedRequest, response.url);
 							}
 							else {
 								alert('Could not get signed URL.');
@@ -160,13 +167,49 @@
 					xhr.send();
 				}
 
+				async function listBucketContentsSlow() {
+					await sleep(2000);
+					className = document.getElementsByName('className')[0].content;
+					classProfessor = document.getElementsByName('classProfessor')[0].content;
+					classQuarter = document.getElementsByName('classQuarter')[0].content;
+					folderName = className + classProfessor + classQuarter + "/textbooks";
+					const xhr = new XMLHttpRequest();
+					xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
+					xhr.onreadystatechange = () => {
+						if (xhr.readyState === 4) {
+							if (xhr.status === 200) {
+								$(".content-container").html("");
+								const response = JSON.parse(xhr.responseText);
+								for (let item in response.Contents) {
+									var link = "https://classresource.s3-us-west-1.amazonaws.com/" + response.Contents[item].Key.replace(/ /g, '+');
+									var resource = response.Contents[item].Key.split(folderName + "/")[1]
+									$(".content-container").append(`<a href=${link} target="_blank">
+									<div class="card card-neutral mb-2">
+										<div class="card-block">
+											<div>` +
+										resource +
+										`</div>
+										</div>
+									</div></a>`);
+								}
+							}
+							else {
+								alert('Could not list bucket contents.');
+							}
+						}
+					};
+					xhr.send();
+				}
+
+				function sleep(ms) {
+					return new Promise(resolve => setTimeout(resolve, ms));
+				}
 				/*
 				 Bind listeners when the page loads.
 				*/
 
 				(() => {
-					document.getElementById('upload-button').onclick = initUpload;
-					document.getElementById('list-contents-button').onclick = listBucketContents;
+					document.getElementById('upload-button').onchange = initUpload;
 					listBucketContents();
 				})();
 
