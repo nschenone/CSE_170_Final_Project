@@ -51,7 +51,7 @@
 			</div>
 		</header>
 		<div class="content">
-			<input type="file" id="file-input">
+			<input type="file" id="file-input"></input>
 
 			<input type="submit" id="upload-button" value="Upload file">
 
@@ -140,11 +140,17 @@
 								$(".content-container").html("");
 								const response = JSON.parse(xhr.responseText);
 								for (let item in response.Contents) {
+									var link = "https://classresource.s3-us-west-1.amazonaws.com/" + response.Contents[item].Key.replace(/ /g, '+');
 									var resource = response.Contents[item].Key.split(folderName + "/")[1]
-									console.log();
-									$(".content-container").append("<div>" + resource + "</div>");
+									$(".content-container").append(`<a href=${link} target="_blank">
+									<div class="card card-neutral mb-2">
+										<div class="card-block">
+											<div>` +
+										resource +
+										`</div>
+										</div>
+									</div></a>`);
 								}
-								//console.log(response);
 							}
 							else {
 								alert('Could not list bucket contents.');
@@ -178,7 +184,7 @@
 				</a>
 				<a href="/myClasses">
 					<li>
-						<i class="fa fa-book active"></i>
+						<i class="fa fa-book"></i>
 						{{!-- <p>My Classes</p> --}}
 						<p>Classes</p>
 					</li>
