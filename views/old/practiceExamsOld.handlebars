@@ -1,0 +1,176 @@
+<html>
+
+<head>
+	<title>Practice Exams</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<link href="../../css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/bootstrap-theme.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+	<meta name="className" content={{className}} />
+	<meta name="classProfessor" content={{classProfessor}} />
+	<meta name="classQuarter" content={{classQuarter}} />
+</head>
+
+<body>
+	<div class="bg">
+		<div class="header">
+			<div class="header-text">
+				<div class="info-text">
+					<div>
+						<p>Practice Exams</p>
+					</div>
+					<div>
+						<h5>{{className}}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<input type="file" id="file-input">
+
+		<input type="submit" id="upload-button" value="Upload file">
+
+		<input type="submit" id="list-contents-button" value="List Contents">
+
+		<div class="content-container"></div>
+
+		{{!-- <form method="POST" action="/save-details">
+			<input type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png">
+			<input type="submit" id="upload-button" value="Upload file">
+		</form> --}}
+
+		<script className={{className}}>
+
+			/*
+			  Function to carry out the actual PUT request to S3 using the signed request from the app.
+			*/
+			function uploadFile(file, signedRequest, url) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('PUT', signedRequest);
+				xhr.onreadystatechange = () => {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+						}
+						else {
+							alert('Could not upload file.');
+						}
+					}
+				};
+				xhr.send(file);
+			}
+
+			/*
+			  Function to get the temporary signed request from the app.
+			  If request successful, continue to upload the file using this signed
+			  request.
+			*/
+			function getSignedRequest(file) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+				xhr.onreadystatechange = () => {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							const response = JSON.parse(xhr.responseText);
+							uploadFile(file, response.signedRequest, response.url);
+						}
+						else {
+							alert('Could not get signed URL.');
+						}
+					}
+				};
+				xhr.send();
+			}
+
+			/*
+			 Function called when file input updated. If there is a file selected, then
+			 start upload procedure by asking for a signed request from the app.
+			*/
+			function initUpload() {
+				const files = document.getElementById('file-input').files;
+
+				const file = files[0];
+				if (file == null) {
+					return alert('No file selected.');
+				} else {
+					className = document.getElementsByName('className')[0].content;
+					classProfessor = document.getElementsByName('classProfessor')[0].content;
+					classQuarter = document.getElementsByName('classQuarter')[0].content;
+					folderName = className + classProfessor + classQuarter + "/practiceexams";
+					var blob = file.slice(0, file.size, file.type);
+					newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
+					getSignedRequest(newFile);
+				}
+			}
+
+			function listBucketContents() {
+				className = document.getElementsByName('className')[0].content;
+				classProfessor = document.getElementsByName('classProfessor')[0].content;
+				classQuarter = document.getElementsByName('classQuarter')[0].content;
+				folderName = className + classProfessor + classQuarter + "/practiceexams";
+				const xhr = new XMLHttpRequest();
+				xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
+				xhr.onreadystatechange = () => {
+					if (xhr.readyState === 4) {
+						if (xhr.status === 200) {
+							$(".content-container").html("");
+							const response = JSON.parse(xhr.responseText);
+							for (let item in response.Contents) {
+								var resource = response.Contents[item].Key.split(folderName + "/")[1]
+								console.log();
+								$(".content-container").append("<div>" + resource + "</div>");
+							}
+							//console.log(response);
+						}
+						else {
+							alert('Could not list bucket contents.');
+						}
+					}
+				};
+				xhr.send();
+			}
+
+			/*
+			 Bind listeners when the page loads.
+			*/
+
+			(() => {
+				document.getElementById('upload-button').onclick = initUpload;
+				document.getElementById('list-contents-button').onclick = listBucketContents;
+				listBucketContents();
+			})();
+
+		</script>
+
+		<div class="footer">
+			<div class="footer-buttons">
+				<a href="/search">
+					<button type="submit" name="search" class="footer-image-search">
+						<img src="../../images/search_classes_resize.png">
+					</button>
+				</a>
+
+				<a href="/myClasses">
+					<button type="submit" name="classes" class="footer-image-classes">
+						<img src="../../images/my_classes_resize.png">
+					</button>
+				</a>
+
+				<a href="/profile/">
+					<button type="submit" name="profile" class="footer-image-profile">
+						<img src="../../images/my_profile_resize.png">
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="../../js/jquery-1.11.0.js"></script>
+	<script src="../../js/bootstrap.js"></script>
+	{{!-- <script src="../js/search.js"></script> --}}
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Practice Exams</title>
+	<title>Textbooks A</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,7 +40,7 @@
 					</button> --}}
 					</a>
 					<div class="centered-inner info-text">
-						<h3>Practice Exams</h3>
+						<h3>Textbooks A</h3>
 						<h5>{{className}}</h5>
 					</div>
 					<div id="upload-button" class="file-upload">
@@ -132,7 +132,7 @@
 						className = document.getElementsByName('className')[0].content;
 						classProfessor = document.getElementsByName('classProfessor')[0].content;
 						classQuarter = document.getElementsByName('classQuarter')[0].content;
-						folderName = className + classProfessor + classQuarter + "/practiceexams";
+						folderName = className + classProfessor + classQuarter + "/textbooks";
 						var blob = file.slice(0, file.size, file.type);
 						newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
 						getSignedRequest(newFile);
@@ -153,7 +153,7 @@
 						className = document.getElementsByName('className')[0].content;
 						classProfessor = document.getElementsByName('classProfessor')[0].content;
 						classQuarter = document.getElementsByName('classQuarter')[0].content;
-						folderName = className + classProfessor + classQuarter + "/practiceexams";
+						folderName = className + classProfessor + classQuarter + "/textbooks";
 						var blob = file.slice(0, file.size, file.type);
 						newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
 						getSignedRequest(newFile);
@@ -164,7 +164,7 @@
 					className = document.getElementsByName('className')[0].content;
 					classProfessor = document.getElementsByName('classProfessor')[0].content;
 					classQuarter = document.getElementsByName('classQuarter')[0].content;
-					folderName = className + classProfessor + classQuarter + "/practiceexams";
+					folderName = className + classProfessor + classQuarter + "/textbooks";
 					const xhr = new XMLHttpRequest();
 					xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
 					xhr.onreadystatechange = () => {
@@ -198,7 +198,7 @@
 					className = document.getElementsByName('className')[0].content;
 					classProfessor = document.getElementsByName('classProfessor')[0].content;
 					classQuarter = document.getElementsByName('classQuarter')[0].content;
-					folderName = className + classProfessor + classQuarter + "/practiceexams";
+					folderName = className + classProfessor + classQuarter + "/textbooks";
 					const xhr = new XMLHttpRequest();
 					xhr.open('GET', `/list-s3?bucket-prefix=${folderName}/`);
 					xhr.onreadystatechange = () => {

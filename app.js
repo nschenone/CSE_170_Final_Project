@@ -125,7 +125,8 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/myClasses', myClasses.view);
 app.get('/class/:name', classPage.viewClass);
-app.get('/class/:name/textbooks', classPage.viewClassTextbooks);
+app.get('/class/:name/textbooksA', classPage.viewClassTextbooksA);
+app.get('/class/:name/textbooksB', classPage.viewClassTextbooksB);
 app.get('/class/:name/classNotes', classPage.viewClassNotes);
 app.get('/class/:name/practiceExams', classPage.viewClassPracticeExams);
 app.get('/profile', profilePage.viewProfile);

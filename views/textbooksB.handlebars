@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Textbooks</title>
+	<title>Textbooks B</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,10 +40,10 @@
 					</button> --}}
 					</a>
 					<div class="centered-inner info-text">
-						<h3>Textbooks</h3>
+						<h3>Textbooks B</h3>
 						<h5>{{className}}</h5>
 					</div>
-					<div id="upload-button" class="file-upload">
+					<div id="upload-button" class="file-upload" style="opacity: 0; pointer-events:none;">
 						<label for="file-input">
 							<i class="fa fa-upload"></i>
 						</label>
@@ -57,11 +57,13 @@
 			</div>
 		</header>
 		<div class="content">
-			{{!-- <input type="file" id="file-input"></input>
+			<input type="file" id="file-input-2"></input>
 
-			<input type="submit" id="upload-button" value="Upload file">
+			<div class="upload-design-2-container">
+				<input class="upload-design-2" type="submit" id="upload-button-2" value="Upload file"></input>
 
-			<input type="submit" id="list-contents-button" value="List Contents"> --}}
+				<input class="upload-design-2" type="submit" id="list-contents-button" value="List Contents">
+			</div> <br>
 
 			<div class="content-container"></div>
 
@@ -102,7 +104,11 @@
 						if (xhr.readyState === 4) {
 							if (xhr.status === 200) {
 								const response = JSON.parse(xhr.responseText);
-								$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
+								// Design 1
+								//$.when(uploadFile(file, response.signedRequest, response.url)).then(listBucketContentsSlow());
+
+								// Design 2
+								uploadFile(file, response.signedRequest, response.url);
 							}
 							else {
 								alert('Could not get signed URL.');
@@ -118,6 +124,27 @@
 				*/
 				function initUpload() {
 					const files = document.getElementById('file-input').files;
+
+					const file = files[0];
+					if (file == null) {
+						return alert('No file selected.');
+					} else {
+						className = document.getElementsByName('className')[0].content;
+						classProfessor = document.getElementsByName('classProfessor')[0].content;
+						classQuarter = document.getElementsByName('classQuarter')[0].content;
+						folderName = className + classProfessor + classQuarter + "/textbooks";
+						var blob = file.slice(0, file.size, file.type);
+						newFile = new File([blob], folderName + "/" + file.name, { type: file.type });
+						getSignedRequest(newFile);
+					}
+				}
+
+				/*
+				 Function called when file input updated. If there is a file selected, then
+				 start upload procedure by asking for a signed request from the app.
+				*/
+				function initUpload2() {
+					const files = document.getElementById('file-input-2').files;
 
 					const file = files[0];
 					if (file == null) {
@@ -208,7 +235,13 @@
 				*/
 
 				(() => {
-					document.getElementById('upload-button').onchange = initUpload;
+					// Design 1
+					//document.getElementById('upload-button').onchange = initUpload;
+					//listBucketContents();
+
+					// Design 2
+					document.getElementById('upload-button-2').onclick = initUpload2;
+					document.getElementById('list-contents-button').onclick = listBucketContents;
 					listBucketContents();
 				})();
 
