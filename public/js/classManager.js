@@ -26,8 +26,6 @@ $(".class-add-button").click(addClass);
 $(".class-remove-button").click(removeClass);
 
 function updateButton() {
-    console.log("UPDATE");
-
     // Query all classes from db
     $.get("/queryAllClasses", function (data, status) {
         allClassesJSON = JSON.parse(data);
@@ -57,7 +55,6 @@ function updateButton() {
             // Match - push new class
             if (className == currClass & classProfessor == currProf) {
                 if (inMyClass() == false) {
-                    console.log("MATCH");
                     // Update button
                     $(".header-text").html(`
                     <a href="/myClasses">
@@ -73,7 +70,6 @@ function updateButton() {
                 }
 
                 else if (inMyClass() == true) {
-                    console.log("NO MATCH");
                     $(".header-text").html(`
                     <a href="/myClasses">
 						<i class="fa fa-arrow-left back-button"></i>
@@ -121,8 +117,6 @@ function inMyClass() {
 function addClass(e) {
     e.preventDefault();
 
-    console.log("ADD CLASS");
-
     // Update db
     $.post("/addClassDB", { "name": currClass, "professor": currProf }, function (data, status) { });
 
@@ -132,8 +126,6 @@ function addClass(e) {
 
 function removeClass(e) {
     e.preventDefault();
-
-    console.log("REMOVE CLASS");
 
     // Update db
     $.post("/removeClassDB", { "name": currClass, "professor": currProf }, function (data, status) { });

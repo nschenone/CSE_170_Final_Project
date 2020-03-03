@@ -181,10 +181,6 @@ html, body {
     display: none;
 }
 
-.upload-design-2-container {
-    /* display: flex; */
-}
-
 .upload-design-2 {
     border: solid;
     border-color: var(--primary-color);
