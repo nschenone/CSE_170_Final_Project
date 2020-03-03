@@ -17,10 +17,10 @@ $(".textbook-b").click(textbookBClickHandler);
 
 function textbookAClickHandler(e) {
     // e.preventDefault();
-    ga("send", "event", "textbook-a", "click");
+    ga("send", "event", "upload", "click");
 }
 
 function textbookBClickHandler(e) {
     // e.preventDefault();
-    ga("send", "event", "textbook-b", "click");
+    ga("send", "event", "upload", "click");
 }
