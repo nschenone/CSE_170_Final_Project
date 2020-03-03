@@ -61,24 +61,26 @@
 		</header>
 
 		<div class="content">
-			<a
-				href="/class/{{className}}/textbooksA?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
-				<div class="card card-neutral mb-2 textbook-a">
-					<div class="card-block">
-						<div>
-							Textbooks A
-						</div>
-						<i class="fa fa-chevron-right"></i>
-					</div>
-				</div>
-			</a>
 
-			<a
-				href="/class/{{className}}/textbooksB?description={{classDescription}}&professor={{classProfessor}}&quarter={{classQuarter}}">
-				<div class="card card-neutral mb-2 textbook-b">
+			<script>
+				function randomSite(className, classDescription, classProfessor, classQuarter) {
+					var sites = [
+						`/class/${className}/textbooksA?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}`,
+						`/class/${className}/textbooksB?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}`,
+					];
+
+					var i = parseInt(Math.random() * sites.length);
+					location.href = sites[i];
+					console.log(sites[i]);
+				}
+			</script>
+
+			<a href="#"
+				onclick="randomSite('{{className}}', '{{classDescription}}', '{{classProfessor}}', '{{classQuarter}}');">
+				<div class="card card-neutral mb-2">
 					<div class="card-block">
 						<div>
-							Textbooks B
+							Textbooks
 						</div>
 						<i class="fa fa-chevron-right"></i>
 					</div>
@@ -115,21 +117,21 @@
 				<a href="/search">
 					<li>
 						<i class="fa fa-search"></i>
-						{{!-- <p>Search Classes</p> --}}
+						{{!-- < p > Search Classes</p> --}}
 						<p>Search</p>
 					</li>
 				</a>
 				<a href="/myClasses">
 					<li>
 						<i class="fa fa-book"></i>
-						{{!-- <p>My Classes</p> --}}
+						{{!-- < p > My Classes</p> --}}
 						<p>My Classes</p>
 					</li>
 				</a>
 				<a href="/profile">
 					<li>
 						<i class="fa fa-user"></i>
-						{{!-- <p>My Profile</p> --}}
+						{{!-- < p > My Profile</p> --}}
 						<p>Profile</p>
 					</li>
 				</a>

@@ -15,12 +15,14 @@ function initializePage() {
 $(".textbook-a").click(textbookAClickHandler);
 $(".textbook-b").click(textbookBClickHandler);
 
+var textbookPageType;
+
 function textbookAClickHandler(e) {
     // e.preventDefault();
-    ga("send", "event", "upload", "click");
+    ga("send", "event", "textbook-a-upload", "click");
 }
 
 function textbookBClickHandler(e) {
     // e.preventDefault();
-    ga("send", "event", "upload", "click");
+    ga("send", "event", "textbook-b-upload", "click");
 }
