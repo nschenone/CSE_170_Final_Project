@@ -14,6 +14,7 @@ function initializePage() {
     // Query all classes from db
     $.get("/queryAllClasses", function (data, status) {
         allClassesJSON = JSON.parse(data);
+        populateAll();
     });
 
     // Query my classes from db
@@ -37,6 +38,7 @@ function search(e) {
     if (keycode == '8' || keycode == '46') {
         input.value = '';
         $(".search-container").text("")
+        populateAll();
     }
 
     else if (query.length > 0) {
@@ -92,7 +94,47 @@ function search(e) {
         if (keycode == '13') {
             input.value = '';
         }
-
     }
 }
 
+function populateAll(e) {
+    var classLen = allClassesJSON["classes"].length;
+
+    // Loop through all classes
+    $(".search-container").text("");
+    var found = false;
+    for (var i = 0; i < classLen; i++) {
+        var className = allClassesJSON["classes"][i]["name"];
+        var classDescription = allClassesJSON["classes"][i]["description"];
+        var classProfessor = allClassesJSON["classes"][i]["professor"];
+        var classQuarter = allClassesJSON["classes"][i]["quarter"];
+
+        // Append class button HTML to search-container
+        var newClassButton = `<a href="class/${className}?description=${classDescription}&professor=${classProfessor}&quarter=${classQuarter}">
+				<div class="card card-neutral mb-2">
+					<div class="card-block">
+						<div>
+							<div class="class-name">
+								${className}
+							</div>
+
+							<div class="class-description">
+								${classDescription}
+							</div>
+
+							<div class="class-professor">
+								${classProfessor}
+							</div>
+
+							<div class="class-quarter">
+								${classQuarter}
+							</div>
+						</div>
+						<i class="fa fa-chevron-right"></i>
+					</div>
+				</div>
+			</a>`
+
+        $(".search-container").append(newClassButton);
+    }
+}
