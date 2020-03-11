@@ -91,6 +91,13 @@ html, body {
     /* padding-top: 50px; */
 }
 
+.centered-inner img {
+    /* margin: auto; */
+    /* width: 500px; */
+    /* color: green; */
+    /* padding-top: 50px; */
+}
+
 .centered-inner-buttons {
     display: flex;
     justify-content: space-around;
@@ -103,7 +110,7 @@ html, body {
     color: var(--secondary-color);
 }
 
-.centered img {
+.profile-pic {
     width: 100px;
     margin-left: 50px;
     /* padding-left: 100px; */
